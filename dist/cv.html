@@ -5,16 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cv builder</title>
     <link rel="stylesheet" href="output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Playwrite+AU+SA:wght@100..400&family=Rubik+Vinyl&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Playwrite+AU+NSW+Guides&family=Playwrite+AU+SA:wght@100..400&family=Rubik+Vinyl&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Playwrite+AU+NSW+Guides&family=Playwrite+AU+SA:wght@100..400&family=Rubik+Vinyl&family=Spicy+Rice&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Jersey+15&family=Playwrite+AU+NSW+Guides&family=Playwrite+AU+SA:wght@100..400&family=Rubik+Vinyl&family=Spicy+Rice&display=swap" rel="stylesheet">
     <script defer src="index.js"></script>
     <style>
         .hexagon {
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
         }
+        
+        .entete{
+            font-family: "Rubik Vinyl", serif;
+
+        }
+        @media print {
+        /* Styles pour version ordinateur */
+        body {
+            font-size: 12px;
+            line-height: 1.5;
+            background: white;
+        }
+        section {
+            display: flex;
+            flex-direction: row !important; /* Forcer la mise en page en colonnes */
+        }
+        .entete {
+            display: none !important; /* Cacher les éléments inutiles pour l'impression */
+        }
+    }
+       
     </style>
 </head>
 <body>
-    <h1 class="w-full text-3xl font-bold text-center">
-        welcome to <span class="text-6xl text-red-500">c</span><span class="text-slate-500 ">v builder</span>
+    <h1 class="w-full text-3xl font-bold text-center entete">
+       congratulation  <span class="text-6xl text-red-500">c</span><span class="text-slate-500 ">v builder</span>
+       has build your cv
     </h1>
     <main class="flex justify-center w-full pt-10">
 <section class="w-[80%]  bg-gray-100 flex shadow-md ">
@@ -89,7 +115,7 @@
                         <div class="w-[40px] h-[40px] hexagon bg-slate-500 flex justify-center items-center">
                              <img src="icons/phone-portrait.svg" alt="error" class="w-6 h-6">
                         </div>
-                        <div class="text-3xl uppercase">contact details</div>
+                        <div class="text-xl uppercase">contact details</div>
                     </div>
                     <div class="bg-black w-[80%] h-1"></div>
                 </div>
@@ -127,7 +153,7 @@
                                 <img src="icons/school.svg" alt="error" class="w-6 h-6">
 
                             </div>
-                            <div class="text-3xl uppercase">Education</div>
+                            <div class="text-xl uppercase">Education</div>
                         </div>
                         <div class="bg-black w-[65%] h-1"></div>
                     </div>
@@ -144,7 +170,7 @@
                                     <img src="icons/construct.svg" alt="error" class="w-6 h-6">
 
                                 </div>
-                                <div class="text-3xl uppercase">work Experience</div>
+                                <div class="text-xl uppercase">work Experience</div>
                             </div>
                             <div class="bg-black w-[65%] h-1"></div>
                         </div>
@@ -162,7 +188,7 @@
                                     <div class="w-[40px] h-[40px] hexagon bg-slate-500 flex justify-center items-center">
                                         <img src="icons/heart.svg" alt="error" class="w-6 h-6">
                                     </div>
-                                    <div class="text-3xl uppercase">Interests</div>
+                                    <div class="text-xl uppercase">Interests</div>
                                 </div>
                                 <div class="bg-black w-[65%] h-1"></div>
                             </div>
@@ -177,8 +203,16 @@
 
     </section>
     </main>
+    <div class="flex justify-center py-4 space-x-4 actions">
+        <button onclick="downloadPDF()" class="p-2 m-4 text-white bg-blue-500">Télécharger PDF</button>
+        <button onclick="window.print()" class="p-2 m-4 text-white bg-green-500">Imprimer</button>
+    </div>
     <script src="cv.js">
     
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 </body>
 </html>

@@ -93,3 +93,18 @@ const storedProfileImage = localStorage.getItem('profileImage');
 if (storedProfileImage) {
     profileImg.src = storedProfileImage;
 }
+async function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    const cvContent = document.querySelector('main'); // Sélectionnez l'élément à exporter
+    
+    // Utilisez html2canvas si vous avez besoin d'images
+    const canvas = await html2canvas(cvContent);
+    const imgData = canvas.toDataURL('image/png');
+    const imgWidth = 190; // Ajustez selon la page A4
+    const pageHeight = 285;
+    const imgHeight = canvas.height * imgWidth / canvas.width;
+    
+    doc.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
+    doc.save('cv.pdf');
+}

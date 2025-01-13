@@ -52,12 +52,16 @@ const translations = {
 document.getElementById('languageSelect').addEventListener('change', (event) => {
     const lang = event.target.value;
     const t = translations[lang];
-    document.getElementById('welcome').innerHTML = t.welcome;
+    document.getElementById('welcome').textContent = t.welcome;
+    document.getElementById('subheader').textContent = t.subheader;
     document.querySelectorAll('.skills').forEach(el => el.textContent = t.skills);
     document.querySelectorAll('.personalSkills').forEach(el => el.textContent = t.personalSkills);
     document.querySelectorAll('.contactDetails').forEach(el => el.textContent = t.contactDetails);
-    // Add similar code for other elements as per your structure
+    document.querySelectorAll('.education').forEach(el => el.textContent = t.education);
+    document.querySelectorAll('.workExperience').forEach(el => el.textContent = t.workExperience);
+    document.querySelectorAll('.interests').forEach(el => el.textContent = t.interests);
 });
+
 const profileInput = document.getElementById('profilePicture');
 let profileImageData = '';
 
@@ -144,7 +148,7 @@ document.getElementById('cvForm').addEventListener('submit', function (event) {
     const email = document.getElementById('email').value.trim();
     const address = document.getElementById('address').value.trim();
 
-    const skills = Array.from(document.querySelectorAll('#skillsContainer .flex')).map(container => {
+    const skills = Array.from(document.querySelectorAll('#skillsContainer > div')).map(container => {
         const inputs = container.querySelectorAll('input');
         return {
             competence: inputs[0]?.value.trim(),
@@ -152,12 +156,7 @@ document.getElementById('cvForm').addEventListener('submit', function (event) {
         };
     });
 
-    const interess = Array.from(document.querySelectorAll('#interessContainer .flex')).map(container => {
-        const input = container.querySelector('input');
-        return input?.value.trim();
-    });
-
-    const personalSkills = Array.from(document.querySelectorAll('#PskillsContainer .flex')).map(container => {
+    const personalSkills = Array.from(document.querySelectorAll('#PskillsContainer > div')).map(container => {
         const inputs = container.querySelectorAll('input');
         return {
             competence: inputs[0]?.value.trim(),
@@ -165,7 +164,7 @@ document.getElementById('cvForm').addEventListener('submit', function (event) {
         };
     });
 
-    const education = Array.from(document.querySelectorAll('#educationContainer .flex')).map(container => {
+    const education = Array.from(document.querySelectorAll('#educationContainer > div')).map(container => {
         const inputs = container.querySelectorAll('input');
         return {
             diplome: inputs[0]?.value.trim(),
@@ -173,8 +172,11 @@ document.getElementById('cvForm').addEventListener('submit', function (event) {
             annee: inputs[2]?.value.trim()
         };
     });
+    const interess = Array.from(document.querySelectorAll('#interessContainer input')).map(input => {
+        return input.value.trim();
+    });
     
-    const experience = Array.from(document.querySelectorAll('#experienceContainer .flex')).map(container => {
+    const experience = Array.from(document.querySelectorAll('#experienceContainer > div')).map(container => {
         const inputs = container.querySelectorAll('input');
         return {
             Titre: inputs[0]?.value.trim(),
@@ -244,5 +246,5 @@ document.getElementById('cvForm').addEventListener('submit', function (event) {
     
 
     localStorage.setItem('cvData', JSON.stringify(cvData));
-    window.location.href = 'cv.html';
+     window.location.href = 'cv.html';
 });
