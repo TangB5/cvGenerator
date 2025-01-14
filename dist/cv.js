@@ -59,9 +59,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 educationContainer.appendChild(educationElement);
             });
         }
-
-        if (Array.isArray(cvData.experience)) {
-            const experienceContainer = document.getElementById('cvExperience');
+        
+        const experienceContainer = document.getElementById('cvExperience');
+        const experience = document.querySelector('.experience');
+        
+        if (Array.isArray(cvData.experience) && experienceContainer && cvData.experience.length > 0) {
             experienceContainer.innerHTML = '';  // Clear existing content
             cvData.experience.forEach(item => {
                 const experienceElement = document.createElement('div');
@@ -72,7 +74,10 @@ window.addEventListener('DOMContentLoaded', () => {
                 `;
                 experienceContainer.appendChild(experienceElement);
             });
+        } else if (experience) {
+            experience.classList.add('hidden');
         }
+        
 
         if (Array.isArray(cvData.interess)) {
             const interessContainer = document.getElementById('cvInteress');
