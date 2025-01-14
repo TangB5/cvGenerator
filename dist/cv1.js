@@ -1,66 +1,66 @@
-const translations = {
-    en: {
-        welcome: "Welcome to CV Builder",
-        skills: "Skills",
-        personalSkills: "Personal Skills",
-        contactDetails: "Contact Details",
-        phone: "Phone",
-        mail: "Mail",
-        address: "Address",
-        education: "Education",
-        workExperience: "Work Experience",
-        interests: "Interests"
-    },
-    fr: {
-        welcome: "Bienvenue dans le Créateur de CV",
-        skills: "Compétences",
-        personalSkills: "Compétences Personnelles",
-        contactDetails: "Coordonnées",
-        phone: "Téléphone",
-        mail: "Courriel",
-        address: "Adresse",
-        education: "Éducation",
-        workExperience: "Expérience Professionnelle",
-        interests: "Intérêts"
-    },
-    es: {
-        welcome: "Bienvenido a Constructor de CV",
-        skills: "Habilidades",
-        personalSkills: "Habilidades Personales",
-        contactDetails: "Detalles de Contacto",
-        phone: "Teléfono",
-        mail: "Correo",
-        address: "Dirección",
-        education: "Educación",
-        workExperience: "Experiencia Laboral",
-        interests: "Intereses"
-    },
-    de: {
-        welcome: "Willkommen beim Lebenslauf-Generator",
-        skills: "Fähigkeiten",
-        personalSkills: "Persönliche Fähigkeiten",
-        contactDetails: "Kontaktdaten",
-        phone: "Telefon",
-        mail: "E-Mail",
-        address: "Adresse",
-        education: "Bildung",
-        workExperience: "Berufserfahrung",
-        interests: "Interessen"
-    }
-};
+// const translations = {
+//     en: {
+//         welcome: "Welcome to CV Builder",
+//         skills: "Skills",
+//         personalSkills: "Personal Skills",
+//         contactDetails: "Contact Details",
+//         phone: "Phone",
+//         mail: "Mail",
+//         address: "Address",
+//         education: "Education",
+//         workExperience: "Work Experience",
+//         interests: "Interests"
+//     },
+//     fr: {
+//         welcome: "Bienvenue dans le Créateur de CV",
+//         skills: "Compétences",
+//         personalSkills: "Compétences Personnelles",
+//         contactDetails: "Coordonnées",
+//         phone: "Téléphone",
+//         mail: "Courriel",
+//         address: "Adresse",
+//         education: "Éducation",
+//         workExperience: "Expérience Professionnelle",
+//         interests: "Intérêts"
+//     },
+//     es: {
+//         welcome: "Bienvenido a Constructor de CV",
+//         skills: "Habilidades",
+//         personalSkills: "Habilidades Personales",
+//         contactDetails: "Detalles de Contacto",
+//         phone: "Teléfono",
+//         mail: "Correo",
+//         address: "Dirección",
+//         education: "Educación",
+//         workExperience: "Experiencia Laboral",
+//         interests: "Intereses"
+//     },
+//     de: {
+//         welcome: "Willkommen beim Lebenslauf-Generator",
+//         skills: "Fähigkeiten",
+//         personalSkills: "Persönliche Fähigkeiten",
+//         contactDetails: "Kontaktdaten",
+//         phone: "Telefon",
+//         mail: "E-Mail",
+//         address: "Adresse",
+//         education: "Bildung",
+//         workExperience: "Berufserfahrung",
+//         interests: "Interessen"
+//     }
+// };
 
-document.getElementById('languageSelect').addEventListener('change', (event) => {
-    const lang = event.target.value;
-    const t = translations[lang];
-    document.getElementById('welcome').textContent = t.welcome;
-    document.getElementById('subheader').textContent = t.subheader;
-    document.querySelectorAll('.skills').forEach(el => el.textContent = t.skills);
-    document.querySelectorAll('.personalSkills').forEach(el => el.textContent = t.personalSkills);
-    document.querySelectorAll('.contactDetails').forEach(el => el.textContent = t.contactDetails);
-    document.querySelectorAll('.education').forEach(el => el.textContent = t.education);
-    document.querySelectorAll('.workExperience').forEach(el => el.textContent = t.workExperience);
-    document.querySelectorAll('.interests').forEach(el => el.textContent = t.interests);
-});
+// document.getElementById('languageSelect').addEventListener('change', (event) => {
+//     const lang = event.target.value;
+//     const t = translations[lang];
+//     document.getElementById('welcome').textContent = t.welcome;
+//     document.getElementById('subheader').textContent = t.subheader;
+//     document.querySelectorAll('.skills').forEach(el => el.textContent = t.skills);
+//     document.querySelectorAll('.personalSkills').forEach(el => el.textContent = t.personalSkills);
+//     document.querySelectorAll('.contactDetails').forEach(el => el.textContent = t.contactDetails);
+//     document.querySelectorAll('.education').forEach(el => el.textContent = t.education);
+//     document.querySelectorAll('.workExperience').forEach(el => el.textContent = t.workExperience);
+//     document.querySelectorAll('.interests').forEach(el => el.textContent = t.interests);
+// });
 
 const profileInput = document.getElementById('profilePicture');
 let profileImageData = '';
@@ -248,6 +248,7 @@ document.getElementById('cvForm').addEventListener('submit', function (event) {
     localStorage.setItem('cvData', JSON.stringify(cvData));
      window.location.href = 'cv.html';
 });
+
 window.onload = function() {
     if (window.innerWidth <= 1024) {
         // Si l'écran est plus petit ou égal à 1024px, on redirige vers une autre page (par exemple "mobile.html")
