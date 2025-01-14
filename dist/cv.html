@@ -34,6 +34,18 @@
             display: none !important; /* Cacher les éléments inutiles pour l'impression */
         }
     }
+    /* CSS pour masquer le contenu sur les appareils mobiles */
+@media only screen and (max-width: 768px) {
+    body {
+        display: none !important;
+    }
+
+    /* Vous pouvez également afficher un message spécifique pour les appareils mobiles */
+    .mobile-warning {
+        display: block !important;
+    }
+}
+
        
     </style>
 </head>

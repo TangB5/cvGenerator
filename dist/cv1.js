@@ -248,3 +248,9 @@ document.getElementById('cvForm').addEventListener('submit', function (event) {
     localStorage.setItem('cvData', JSON.stringify(cvData));
      window.location.href = 'cv.html';
 });
+window.onload = function() {
+    if (window.innerWidth <= 1024) {
+        // Si l'écran est plus petit ou égal à 1024px, on redirige vers une autre page (par exemple "mobile.html")
+        window.location.href = "mobile.html"; // Vous pouvez créer une page `mobile.html` pour informer l'utilisateur
+    }
+};
